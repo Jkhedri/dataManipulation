@@ -2,7 +2,6 @@ import sqlite3
 import random
 import string
 import json
-import textwrap
 
 
 databaseName = 'database'              # Databasename in string format
