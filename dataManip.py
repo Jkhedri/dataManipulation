@@ -17,9 +17,9 @@ dbCursor = dbConnection.cursor()    # Creates a query cursor
 
 def fetchInteractions():
     try:
-        query = """SELECT * FROM interactions""";  # Fetches a list of all tables in the database
+        query = """SELECT * FROM interactions""";  # Fetches a list of all interaction in the database
         dbCursor.execute(query)
-        interactions = dbCursor.fetchall()                            # Saves fetched table-names to variable 'tables'
+        interactions = dbCursor.fetchall()                            
         dbConnection.commit()
         return interactions
     except sqlite3.Error as e:
