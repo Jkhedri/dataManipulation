@@ -1,2 +1,2 @@
 # dataManip
-For data manipulation
+For data manipulation, psychology bot
