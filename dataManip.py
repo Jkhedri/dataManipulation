@@ -4,6 +4,13 @@ import string
 import json
 
 
+"""
+This script fetches data from a sqlite database and writes it to a json file.
+
+Need to add ways to include feedback and other data.
+"""
+
+
 databaseName = 'database'              # Databasename in string format
 dbConnection = sqlite3.connect(databaseName+'.db') # Establishes database connection
 dbCursor = dbConnection.cursor()    # Creates a query cursor
