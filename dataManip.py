@@ -2,30 +2,24 @@ import sqlite3
 import random
 import string
 import json
-import textwrap
+
+
+"""
+This script fetches data from a sqlite database and writes it to a json file.
+
+Need to add ways to include feedback and other data.
+"""
 
 
 databaseName = 'database'              # Databasename in string format
 dbConnection = sqlite3.connect(databaseName+'.db') # Establishes database connection
 dbCursor = dbConnection.cursor()    # Creates a query cursor
 
-def drop(viewName):
-        # Drops previous view of selected league if it already exists
-    try:
-        query = f"""DROP view {viewName}""";
-        dbCursor.execute(query)
-        dbConnection.commit()  
-    except sqlite3.Error as e:
-        print(f"""ROLLBACK: {viewName} view does not exists or other error.""")
-        print("Error message:", e.args[0])
-        dbConnection.rollback()
-        pass
-
 def fetchInteractions():
     try:
-        query = """SELECT * FROM interactions""";  # Fetches a list of all tables in the database
+        query = """SELECT * FROM interactions""";  # Fetches a list of all interaction in the database
         dbCursor.execute(query)
-        interactions = dbCursor.fetchall()                            # Saves fetched table-names to variable 'tables'
+        interactions = dbCursor.fetchall()                            
         dbConnection.commit()
         return interactions
     except sqlite3.Error as e:
@@ -43,8 +37,6 @@ def getRandomString(length):
     characters = string.ascii_letters + string.digits
     password = ''.join(random.choice(characters) for i in range(length))
     return password
-
-
 
 # Data to be written
 
