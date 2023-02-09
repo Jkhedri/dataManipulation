@@ -41,23 +41,24 @@ def getRandomString(length):
 # Data to be written
 
 items = []
+index = 1
 for row in fetchInteractions():
     randomPromptString = getRandomString(10)
     randomResponseString = getRandomString(10)
 
     promptDictionary = {
-        "user_message_id": randomPromptString,
-        "parent_message_id": None,
-        "text": getPrompt(row),
-        "role": "prompter"
+        "id": index  ,
+        "text": getPrompt(row)
+        
     }
 
+    index+=1
     responseDictionary = {
-        "user_message_id": randomResponseString,
-        "parent_message_id": randomPromptString,
-        "text": getResponse(row),
-        "role": "psychologist"
+        "id": index,
+        "text": getResponse(row)
+        
     }
+    index+=1
 
     # Serializing json
     json_prompt = json.dumps(promptDictionary, indent=4)
@@ -66,7 +67,7 @@ for row in fetchInteractions():
     items.append(json_response)
 
 # Writing to sample.json
-with open("data.json", "w") as outfile:
+with open("for_embeddings.json", "w") as outfile:
     outfile.write("[")
     outfile.write("\n")
     for json_object in items:
