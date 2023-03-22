@@ -1,7 +1,7 @@
 # Note: you need to be using OpenAI Python v0.27.0 for the code below to work
 import openai
 
-openai.api_key = "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"
+openai.api_key = "key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 response = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",

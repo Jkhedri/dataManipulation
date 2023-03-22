@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # define the long instruction prompt
 instruction_prompt = 'I want you to simulate snippets of psychology sessions.'\
