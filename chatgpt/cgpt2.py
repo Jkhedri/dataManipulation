@@ -1,6 +1,9 @@
 import openai
 import os
+from dotenv import load_dotenv
 
+# Okej man måste kalla på load_dotenv() när man vill använda .env filen
+load_dotenv()
 
 def main():
   openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -64,13 +67,12 @@ def write_to_json(list):
             outfile.write("\n")
         outfile.write("]")
     return outfile
-
+    
 def print_answers(answers):
     for answer in answers:
         print(answer)
 
 if __name__ == "__main__":
-    #answers = main()
-    #print_answers(answers)
-    #write_to_json(answers)
-    print(os.getenv("OPENAI_API_KEY"))
+    answers = main()
+    print_answers(answers)
+    write_to_json(answers)
