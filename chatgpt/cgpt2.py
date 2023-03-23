@@ -1,9 +1,12 @@
 import openai
 import os
 from dotenv import load_dotenv
+import timeit
+import math
 
 # Okej man måste kalla på load_dotenv() när man vill använda .env filen
 load_dotenv()
+ITERATIONS = 100  # number of iterations
 
 def main():
   openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -25,41 +28,48 @@ def main():
 
   # get the first response
 
-
+  time0 = timeit.default_timer()
   # loop to get multiple responses
-  #for i in range(1):
-  while True:
-      # get a single response from the API
-      response = openai.ChatCompletion.create(
-      model="gpt-3.5-turbo",
-      messages = [
-        {"role": "system", "content":instruction_prompt},
-        {"role": "user", "content":"Please come up with 20 prompts and answers, and return the data in the format described previously and nothing else. Separate the different pairs of prompt-and-answers with a comma (,). Remember to include the brackets and surround the prompt and answers with citations. Also remember to indent them."},],
-      n=1,
-      stop=None,
-      temperature=0.7,
-      )
-      
-      # get the answer from the response
-      answer = response['choices'][0]['message']['content']
-      
-      # append the answer to the list
-      answers.append(answer)
-      
-      # ask the user if they want to continue
-      user_input = input("Do you want another response? (y/n): ")
-      
-      # break the loop if the user says no
-      if user_input.lower() != 'y':
-          break
-      
-      #break
+  for i in range(ITERATIONS):
+    starttime = timeit.default_timer()
+    # get a single response from the API
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages = [
+      {"role": "system", "content":instruction_prompt},
+      {"role": "user", "content":"Please come up with 2 prompts and answers, "\
+       "and return the data in the format described previously and nothing else. "\
+         "Both the prompts and answers shall be anywhere in the range of 10 to 100 words, no less, no more. "\
+          "Separate the different pairs of prompt-and-answers with a comma (,). "\
+            "Remember to include the brackets and surround the prompt and answers with citations. "\
+              "Also remember to indent them."},],
+    n=1,
+    stop=None,
+    temperature=math.log(1.65+0.0106*i), #(temp will range from 0.5 to 1)
+    )
+    print("- Iteration:", i+1)
+    print("- Time for iteration:", round(timeit.default_timer() - starttime), "seconds")
+    print("- Total runtime:", round(timeit.default_timer() - time0), "seconds", "\n")
 
+    # get the answer from the response
+    answer = response['choices'][0]['message']['content']
+    
+    # append the answer to the list
+    answers.append(answer)
+    """
+    # ask the user if they want to continue
+    user_input = input("Do you want another response? (y/n): ")
+    
+    # break the loop if the user says no
+    if user_input.lower() != 'y':
+        break
+    """
+    
   return answers
 
 # Writing to sample.json
 def write_to_json(list):
-    with open("pna7.json", "w") as outfile:
+    with open("pnatemp0p5n6.json", "w") as outfile:
         outfile.write("[")
         outfile.write("\n")
         for json_object in list:
