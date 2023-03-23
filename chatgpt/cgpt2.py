@@ -6,7 +6,7 @@ import math
 
 # Okej man måste kalla på load_dotenv() när man vill använda .env filen
 load_dotenv()
-ITERATIONS = 100  # number of iterations
+ITERATIONS = 50  # number of iterations
 
 def main():
   openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -37,7 +37,7 @@ def main():
     model="gpt-3.5-turbo",
     messages = [
       {"role": "system", "content":instruction_prompt},
-      {"role": "user", "content":"Please come up with 30 prompts and answers, "\
+      {"role": "user", "content":"Please come up with 20 prompts and answers, "\
        "and return the data in the format described previously and nothing else. "\
          "Both the prompts and answers shall be anywhere in the range of 10 to 100 words, no less, no more. "\
           "Separate the different pairs of prompt-and-answers with a comma (,). "\
@@ -57,7 +57,7 @@ def main():
     
     # append the answer to the list
     #answers.append(answer)
-    write_to_json(answers, "main_run_data_samhog.json")
+    write_to_json(answers, "main_run_data_jkhedri.json")
     """
     # ask the user if they want to continue
     user_input = input("Do you want another response? (y/n): ")
@@ -102,11 +102,11 @@ def remove_last_line(filename):                     # Från https://stackoverflo
 
         # So long as we're not at the start of the file, delete all the characters ahead
         # of this position
-        if pos > 0:
-            file.seek(pos, os.SEEK_SET)
+        if pos-1 > 0:
+            file.seek(pos-1, os.SEEK_SET)
             file.truncate()
 
-
+"""
 # Writing to sample.json
 def write_to_json_old(list):
     with open("pnatemp0p5n6.json", "w") as outfile:
@@ -119,6 +119,7 @@ def write_to_json_old(list):
             outfile.write("\n")
         outfile.write("]")
     return outfile
+"""
     
 def print_answers(answers):
     for answer in answers:
