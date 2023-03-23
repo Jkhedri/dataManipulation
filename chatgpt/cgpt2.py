@@ -27,14 +27,14 @@ def main():
 
 
   # loop to get multiple responses
+  #for i in range(1):
   while True:
       # get a single response from the API
       response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",
       messages = [
         {"role": "system", "content":instruction_prompt},
-        {"role": "user", "content":"Please come up with five prompts and answers, and return the data in the format described previously and nothing else. Separate the different pairs of prompt-and-answers with a comma (,). Remember to include the brackets and surround the prompt and answers with citations. Also remember to indent them."},],
-      max_tokens=2048,
+        {"role": "user", "content":"Please come up with 20 prompts and answers, and return the data in the format described previously and nothing else. Separate the different pairs of prompt-and-answers with a comma (,). Remember to include the brackets and surround the prompt and answers with citations. Also remember to indent them."},],
       n=1,
       stop=None,
       temperature=0.7,
@@ -52,12 +52,14 @@ def main():
       # break the loop if the user says no
       if user_input.lower() != 'y':
           break
+      
+      #break
 
   return answers
 
 # Writing to sample.json
 def write_to_json(list):
-    with open("pna5.json", "w") as outfile:
+    with open("pna7.json", "w") as outfile:
         outfile.write("[")
         outfile.write("\n")
         for json_object in list:
@@ -74,5 +76,5 @@ def print_answers(answers):
 
 if __name__ == "__main__":
     answers = main()
-    print_answers(answers)
+    #print_answers(answers)
     write_to_json(answers)
