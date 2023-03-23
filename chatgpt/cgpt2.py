@@ -30,14 +30,14 @@ def main():
 
   time0 = timeit.default_timer()
   # loop to get multiple responses
-  for i in range(2):
+  for i in range(ITERATIONS):
     starttime = timeit.default_timer()
     # get a single response from the API
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages = [
       {"role": "system", "content":instruction_prompt},
-      {"role": "user", "content":"Please come up with 2 prompts and answers, "\
+      {"role": "user", "content":"Please come up with 30 prompts and answers, "\
        "and return the data in the format described previously and nothing else. "\
          "Both the prompts and answers shall be anywhere in the range of 10 to 100 words, no less, no more. "\
           "Separate the different pairs of prompt-and-answers with a comma (,). "\
@@ -57,7 +57,7 @@ def main():
     
     # append the answer to the list
     #answers.append(answer)
-    write_to_json(answers, "testdata.json")
+    write_to_json(answers, "main_run_data_samhog.json")
     """
     # ask the user if they want to continue
     user_input = input("Do you want another response? (y/n): ")
