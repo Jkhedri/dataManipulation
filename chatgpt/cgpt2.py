@@ -6,7 +6,7 @@ import math
 
 # Okej man måste kalla på load_dotenv() när man vill använda .env filen
 load_dotenv()
-ITERATIONS = 50  # number of iterations
+ITERATIONS = 70  # number of iterations
 
 def main():
   openai.api_key = os.getenv("OPENAI_API_KEY")
