@@ -20,3 +20,4 @@ if __name__ == "__main__":
         f.write('[\n')
         for prompt in prompts:
             f.write("{\n" + "   \"prompt\": \"" + prompt + "\"\n},\n")
+        f.write(']')
