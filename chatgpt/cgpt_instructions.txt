@@ -1,0 +1,17 @@
+  instruction_prompt = 'I want you to simulate snippets of psychology sessions.'\
+            ' I want you to come up with a prompt from a patient and then two responses to that prompt: One response that would be written by the worlds most outstanding psychologist, renowned for his compassion and ability to help others, and one advice that could be considered unethical or harmful, the type of advice that a psychologist would never give.'\
+            ' If I ask you to return multiple prompts, I want every prompt to be on a different subject than the previous one.'\
+              ' I want you to return the data to me in the following format:\n'\
+                '{\n'\
+                  '   "prompt": YOUR PROMPT\n'\
+                    '   "g_answer": YOUR GOOD ANSWER\n'\
+                      '   "b_answer": YOUR BAD ANSWER\n'\
+                        '}\n'\
+                          'Please return only the data in the described format and nothing more. Understood?'
+
+
+  user_input = "Please come up with 10 prompts and answers, "\
+       "and return the data in the format described previously and nothing else. "\
+          "Separate the different pairs of prompt-and-answers with a comma (,). "\
+            "Remember to include the brackets and surround the prompt and answers with citations. "\
+              "Also remember to indent them."
