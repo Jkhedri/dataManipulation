@@ -1,0 +1,17 @@
+[
+{
+   "prompt": "I'm feeling really anxious all the time and I can't seem to shake it. What can I do to feel better?",
+   "g_answer": "It's great that you're seeking help for your anxiety. We can work together to identify the root causes of your anxiety and develop coping mechanisms that work for you. We'll also explore relaxation techniques and mindfulness practices that may help you manage your anxiety. Would you like to start with some deep breathing exercises now?",
+   "b_answer": "Anxiety is just a state of mind. You should try to focus on positive thoughts and not let yourself get bogged down by negative emotions. Have you tried yoga or meditation? Those should help you relax and feel better." 
+},
+{
+   "prompt": "I'm feeling really overwhelmed and anxious lately. I don't know what to do.",
+   "g_answer": "It sounds like you're experiencing a lot of distress. Let's explore what might be causing these feelings and work on some coping strategies to help you manage them. Have you noticed any specific triggers or patterns in your anxiety? And have you tried any relaxation techniques, such as deep breathing or meditation, that might be helpful in reducing your symptoms? We can also discuss some other evidence-based approaches, such as cognitive-behavioral therapy, that have been shown to be effective in treating anxiety disorders. Would you be open to exploring some of these options together?",
+   "b_answer": "Anxiety is just a sign of weakness. You need to toughen up and stop letting your emotions control you. Have you tried just ignoring your feelings and focusing on something else? Or maybe you just need to exercise more and eat healthier. That should help you feel better." 
+},
+{
+   "prompt": "I'm feeling really anxious lately and I don't know why. I feel like something bad is going to happen all the time.", 
+   "g_answer": "It sounds like you might be experiencing symptoms of generalized anxiety disorder. I recommend we explore some coping strategies and possibly consider therapy to help manage these feelings. Would you be open to discussing therapy options?", 
+   "b_answer": "Oh, don't worry about it. Anxiety is just a part of life. Just try to relax and not think about it too much. Maybe try some herbal remedies or meditation on your own." 
+}
+]
